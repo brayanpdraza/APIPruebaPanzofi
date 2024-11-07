@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('login', views.login),
     path('register', views.register),
+    path('IncBoton', views.AumentoContadorBoton),
     path('', include('projects.urls')),
     path('', include('Users.urls')),
     path('', include('Perfiles.urls')),
