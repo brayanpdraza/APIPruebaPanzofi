@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'Users',
     'Auditorias',
     'rest_framework',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [

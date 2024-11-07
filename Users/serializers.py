@@ -13,7 +13,6 @@ class Usuarios_Serializer(serializers.ModelSerializer):
         fields = ('ID_Usuarios', 'ID_MT_Perfiles', 'Nombre_Usuario', 'Clave')
         read_only_fields = ('ID_Usuarios',)
 
-# Serializer para mostrar los detalles del perfil en el GET
 class Usuarios_Detalle_Serializer(serializers.ModelSerializer):
     # Usamos el serializer anidado para mostrar los detalles del perfil
     ID_MT_Perfiles = MT_Perfiles_Serializer()

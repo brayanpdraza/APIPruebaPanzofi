@@ -3,7 +3,7 @@ from rest_framework import viewsets, permissions,status
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from .serializers import Usuarios_Serializer,Usuarios_Detalle_Serializer,Usuarios_Sesion_Serializer
-import hashlib  # Solo si decides encriptar manualmente la clave
+#import hashlib 
 
 class Users_View_Set(viewsets.ModelViewSet):
     queryset=Usuarios.objects.all()
@@ -21,15 +21,15 @@ class Users_Detail_View_Set(viewsets.ReadOnlyModelViewSet):
         clave = request.data.get('Clave')
         
         # Encriptar o comparar con el hash almacenado
-        hashed_clave = hashlib.sha256(clave.encode()).hexdigest()
+        #hashed_clave = hashlib.sha256(clave.encode()).hexdigest()
         
-        usuario = Usuarios.objects.filter(Nombre_Usuario=nombre_usuario, Clave=hashed_clave).first()
+        usuario = Usuarios.objects.filter(Nombre_Usuario=nombre_usuario, Clave=clave).first()
         
         if usuario:
             serializer = Usuarios_Detalle_Serializer(usuario)
             return Response(serializer.data)
         else:
-            return Response({"detail": "Usuario no encontrado","clave":hashed_clave}, status=status.HTTP_404_NOT_FOUND)
+            return Response({"detail": "Usuario no encontrado"}, status=status.HTTP_404_NOT_FOUND)
 
 class Users_Session_View_Set(viewsets.ModelViewSet):
     queryset=Usuarios_Sesion.objects.all()
