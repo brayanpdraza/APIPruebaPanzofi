@@ -5,21 +5,27 @@ from Users.serializers import Usuarios_Serializer
 from Users.models import Usuarios,Usuarios_Sesion
 from rest_framework.authtoken.models import Token
 from django.contrib.auth.models import User
+from django.contrib.auth.hashers import make_password,check_password
 
 @api_view(['POST'])
 def login(request):
     
-    if not Usuarios.objects.filter(Nombre_Usuario=request.data['Nombre_Usuario']).exists():
+    try:
+        # Intentar obtener el usuario directamente
+        Usuario = Usuarios.objects.get(Nombre_Usuario=request.data["Nombre_Usuario"])
+    except Usuarios.DoesNotExist:
+        # Si no existe, retornamos el error 404
         return Response({'error': 'El nombre de usuario no se encuentra registrado.'}, status=status.HTTP_404_NOT_FOUND)
 
-    Usuario = Usuarios.objects.get(Nombre_Usuario = request.data["Nombre_Usuario"])
+    if not check_password(request.data['Clave'], Usuario.Clave):
+        return Response({'error': 'Contraseña incorrecta.'}, status=status.HTTP_400_BAD_REQUEST)
 
     token = start_user_session(Usuario)
-    serializer = Usuarios_Serializer(data=request.data)
-    if serializer.is_valid():
-        return Response({'token':token.key,'usuario':serializer.data},status=status.HTTP_200_OK)
+
+    usuario_serializado = Usuarios_Serializer(Usuario)
+
+    return Response({'token':token.key,'usuario':usuario_serializado.data},status=status.HTTP_200_OK)
     
-    return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['POST'])
 def register(request):
@@ -33,12 +39,14 @@ def register(request):
 
         Usuario = Usuarios.objects.get(Nombre_Usuario = serializer.data["Nombre_Usuario"])
         
-        Usuario.Clave = serializer.data['Clave']
+        Usuario.Clave =  make_password(serializer.data['Clave'])
         Usuario.save()
 
         token = start_user_session(Usuario)
 
-        return Response({'token':token.key,'usuario':serializer.data}, status=status.HTTP_201_CREATED)
+        usuario_serializado = Usuarios_Serializer(Usuario)
+
+        return Response({'token':token.key,'usuario':usuario_serializado.data}, status=status.HTTP_201_CREATED)
 
     return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
 
