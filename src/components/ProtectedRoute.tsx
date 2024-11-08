@@ -1,26 +1,40 @@
-import React from 'react';
-import { Navigate, Outlet } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 
 const ProtectedRoute: React.FC = () => {
-  // Obtenemos las cookies
-  const sessionToken = document.cookie.split('; ').find(cookie => cookie.startsWith('sessionToken='));
-  const userLevel = document.cookie.split('; ').find(cookie => cookie.startsWith('userLevel='));
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [userRole, setUserRole] = useState<number | null>(null);
+  const [isLoading, setIsLoading] = useState(true); 
 
-  const isLoggedIn = sessionToken !== undefined;  // Si tiene el token, está logueado
-  const userHierarchy = userLevel ? parseInt(userLevel.split('=')[1]) : null;
-  console.log(userHierarchy)
-  if (!isLoggedIn) {
-    // Si no está logueado, redirigimos al home
-    return <Navigate to="/" />;
+  const navigate = useNavigate();
+  const location = useLocation(); 
+
+  useEffect(() => {
+    const sessionToken = document.cookie.split('; ').find(cookie => cookie.startsWith('sessionToken='));
+    const userLevel = document.cookie.split('; ').find(cookie => cookie.startsWith('userLevel='));
+
+    const isLoggedIn = sessionToken !== undefined;
+    const userRoleFromCookie = userLevel ? parseInt(userLevel.split('=')[1]) : null;
+
+    setIsAuthenticated(isLoggedIn);
+    setUserRole(userRoleFromCookie);
+
+    setIsLoading(false);
+
+    if (!isLoggedIn) {
+      navigate("/", { replace: true }); 
+    } else if (userRoleFromCookie === 1) {
+      navigate("/InicioSesion/AdminPage"); 
+    } else {
+      navigate("/InicioSesion/RegularPage"); 
+    }
+  }, [location.pathname,navigate]); 
+
+  if (isLoading) {
+    return <div>Loading...</div>; 
   }
 
-  if (userHierarchy === 1) {
-    // Si es admin (jerarquía 1), renderizamos la página de admin
-    return <Navigate to="/InicioSesion/AdminPage" />;
-  }
-
-  // Si es usuario regular (jerarquía distinta de 1), renderizamos la página de usuario regular
-  return <Navigate to="/InicioSesion/RegularPage" />;
+  return <Outlet />;
 };
 
 export default ProtectedRoute;

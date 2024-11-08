@@ -6,7 +6,7 @@ export default function RegularPage(){
             <div className="home-content"> {/* Nuevo contenedor */}
 
                 <h1>Home</h1>
-                <p>Hola, Bienvenido</p>
+                <p>Hola, Bienvenido Regular</p>
             </div>
                 </div>
             </div>
