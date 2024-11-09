@@ -108,7 +108,7 @@ const AdminPage: React.FC = () => {
     datasets: [
       {
         label: 'Tiempo de Sesión',
-        data: usuarios.map(usuario => Number(usuario.Tiempo)), // Asegura que 'Tiempo' es numérico
+        data: usuarios.map(usuario => usuario.Tiempo), 
         backgroundColor: 'rgba(53, 162, 235, 0.5)',
         borderColor: 'rgba(53, 162, 235, 1)',
         borderWidth: 1,
@@ -139,7 +139,7 @@ const AdminPage: React.FC = () => {
     scales: {
       x: {
         min: 0, // Define el inicio del rango visible en el eje X
-        max: Math.min(7, usuarios.length), // Muestra inicialmente un rango de 10 usuarios o menos
+        max: Math.min(7, usuarios.length), // Muestra inicialmente un rango de 7-8 usuarios
       },
     },
   };

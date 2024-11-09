@@ -5,14 +5,14 @@ export default function Error(){
     const error = useRouteError();
 
     const handleRedirect = () => {
-        navigate('/'); // Aquí defines la ruta a la que quieres redirigir
+        navigate('/'); 
     };
 
     const errorMessage = (() => {
         if (error instanceof Response) {
             return `Error ${error.status}: ${error.statusText}`;
         } else if (error && typeof error === "object" && "message" in error) {
-            return (error as Error).message; // Mensaje para errores de tipo Error
+            return (error as Error).message; 
         } else {
             return "Error desconocido";
         }

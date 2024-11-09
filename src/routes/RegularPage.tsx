@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../css/RegularPage.css'; // Asegúrate de tener esta ruta correcta
+import '../css/RegularPage.css'; 
 
 interface Config {
     apiUrl: string;
@@ -102,7 +102,7 @@ export default function RegularPage(){
             'Authorization': `Token ${sessionToken}`,
             },
             body: JSON.stringify({
-            tiempo: timeCount, // Mandar el contador actualizado
+            tiempo: timeCount,
             }),
         });
 

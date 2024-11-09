@@ -1,6 +1,6 @@
 import React, { useState, useEffect, FormEvent } from 'react';
 import { useNavigate   } from "react-router-dom";
-import '../css/LoginForm.css'; // Asegúrate de crear este archivo CSS
+import '../css/LoginForm.css'; 
 
 interface Config {
   apiUrl: string;
@@ -64,7 +64,7 @@ const LoginForm: React.FC = () => {
         }
 
         const sessionToken = data.token;
-        const idMTPerfiles = data.usuario.ID_MT_Perfiles; // Suponiendo que el ID de perfiles viene en el objeto de usuario
+        const idMTPerfiles = data.usuario.ID_MT_Perfiles;
         
         document.cookie = `sessionToken=${sessionToken}; path=/;`;
 
@@ -83,7 +83,7 @@ const LoginForm: React.FC = () => {
         // Guardar jerarquía en las cookies
         document.cookie = `userLevel=${jerarquia}; path=/;`;
 
-        navigate('/InicioSesion'); // Redirige al usuario tras el login exitoso
+        navigate('/InicioSesion'); 
 
     } catch (error) {
         setError(`Error al iniciar sesión: ${error instanceof Error ? error.message : 'Desconocido'}`);
