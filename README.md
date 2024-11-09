@@ -41,14 +41,14 @@ Sigue estos pasos para descargar, configurar e iniciar el proyecto en tu máquin
   
   Si alguna de estas dependencias no se instala automáticamente o hay un error, verifica que la versión de Node.js instalada sea compatible.
   
-  4. **Configura las variables de entorno**
-    en el archivo "config.json" debemos asegurarnos de apuntar a la url de la API:
+4. **Configura las variables de entorno**
+   en el archivo "config.json" debemos asegurarnos de apuntar a la url de la API:
 
-    {
-      "apiUrl": "https://mi-api.com"
-    }
+   {
+   "apiUrl": "https://mi-api.com"
+   }
 
-    Si se ejecuta localmente con Django, no se debe modificar nada
+   Si se ejecuta localmente con Django, no se debe modificar nada
 
   ## Ejecución
   1. **Ejecuta el servidor de desarrollo**:
