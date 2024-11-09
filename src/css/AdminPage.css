@@ -52,14 +52,15 @@
   justify-content: space-between; 
 } 
 .chart {
-  flex: 1 1 45%; /* Cada gráfico ocupará aproximadamente el 45% del contenedor */
+  flex: 1 1 45%;
   margin-bottom: 20px;
-  height: 350px;
+  height: 400px;
 }
 
 .bar-chart-wrapper {
   width: 100%; 
   overflow-x: auto; 
+  height: 400px;
 }
 
 .chart h2 { 

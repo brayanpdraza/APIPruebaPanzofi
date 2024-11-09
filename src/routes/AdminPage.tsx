@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Bar, Pie } from 'react-chartjs-2';
+import zoomPlugin from 'chartjs-plugin-zoom';
 import '../css/AdminPage.css'; 
 import {
   Chart as ChartJS,
+  ChartData,
+  ChartOptions,
   CategoryScale,
   LinearScale,
   BarElement,
@@ -26,7 +29,7 @@ interface Usuario {
   Boton_2: number;
 }
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement);
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement,zoomPlugin);
 
 const AdminPage: React.FC = () => {
   const [usuarios, setUsuarios] = useState<Usuario[]>([]);
@@ -100,21 +103,45 @@ const AdminPage: React.FC = () => {
     fetchUsuarios();
   }, [apiUrl, sessionToken]);
 
-  const barData = {
+  const barData: ChartData<'bar'> = {
     labels: usuarios.map(usuario => usuario.Nombre_Usuario),
     datasets: [
       {
         label: 'Tiempo de Sesión',
-        data: usuarios.map(usuario => usuario.Tiempo), // Asegúrate de convertir a número si es string
+        data: usuarios.map(usuario => Number(usuario.Tiempo)), // Asegura que 'Tiempo' es numérico
         backgroundColor: 'rgba(53, 162, 235, 0.5)',
         borderColor: 'rgba(53, 162, 235, 1)',
         borderWidth: 1,
       },
     ],
   };
-  const barOptions = {
+  
+  const barOptions: ChartOptions<'bar'> = {
     responsive: true,
     maintainAspectRatio: false,
+    plugins: {
+      zoom: {
+        pan: {
+          enabled: true,
+          mode: 'x', // Permite desplazamiento en el eje X
+        },
+        zoom: {
+          wheel: {
+            enabled: true, // Habilita zoom con la rueda del ratón
+          },
+          pinch: {
+            enabled: true, // Habilita pinch-to-zoom en dispositivos táctiles
+          },
+          mode: 'x', // Zoom en el eje X
+        },
+      },
+    },
+    scales: {
+      x: {
+        min: 0, // Define el inicio del rango visible en el eje X
+        max: Math.min(7, usuarios.length), // Muestra inicialmente un rango de 10 usuarios o menos
+      },
+    },
   };
 
   const pieData = {
