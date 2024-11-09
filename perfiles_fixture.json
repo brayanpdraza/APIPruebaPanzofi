@@ -1,0 +1,1 @@
+[{"model": "Perfiles.mt_perfiles", "pk": 1, "fields": {"Nombre_Perfil": "Administrador", "Jerarquia": 1, "Descripcion": "Permiso con mayor jerarquía"}}, {"model": "Perfiles.mt_perfiles", "pk": 2, "fields": {"Nombre_Perfil": "Regular", "Jerarquia": 2, "Descripcion": "Usuario Regular"}}]
