@@ -1,3 +1,7 @@
+> **Advertencia**: 
+> Antes de ejecutar el frontend de este proyecto, asegúrate de que la API esté configurada y funcionando. El frontend depende de una API para obtener los datos y no podrá funcionar sin ella. 
+> Consulta la sección (https://github.com/brayanpdraza/APIPruebaPanzofi/tree/master).
+
 # Proyecto React - Administrador de Sesiones y Gráficos
 
 Este proyecto es una aplicación de administración/Interaccion que muestra estadísticas de usuarios y su interacción con botones dentro de un sistema, además de ofrecer gráficos interactivos con `chart.js` para mostrar datos como el tiempo de sesión por usuario y el uso de botones.
