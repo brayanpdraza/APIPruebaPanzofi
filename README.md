@@ -40,7 +40,8 @@ Sigue estos pasos para descargar, configurar e iniciar el proyecto en tu máquin
   chartjs-plugin-zoom: Para permitir el zoom y desplazamiento en los gráficos.
   
   Si alguna de estas dependencias no se instala automáticamente o hay un error, verifica que la versión de Node.js instalada sea compatible.
-4. **Configura las variables de entorno**
+  
+  4. **Configura las variables de entorno**
     en el archivo "config.json" debemos asegurarnos de apuntar a la url de la API:
 
     {
