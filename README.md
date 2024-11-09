@@ -83,5 +83,5 @@ Sigue estos pasos para descargar, configurar e iniciar el proyecto en tu máquin
    
 - El logo de la aplicación, un título y una breve descripción.
 - Botones interactivos: Al hacer clic en los botones, se genera un mensaje y se actualiza la cantidad de clics por sesión.
-- La sesión se actualiza cada minuto y se envía la información a la base de datos.
+- El tiempo de la sesión se actualiza cada minuto y se envía la información a la base de datos.
       
