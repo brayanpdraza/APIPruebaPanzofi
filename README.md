@@ -50,7 +50,7 @@ Sigue estos pasos para descargar, configurar e iniciar el proyecto en tu máquin
 
    Si se ejecuta localmente con Django, no se debe modificar nada
 
-  ## Ejecución
+## Ejecución
   1. **Ejecuta el servidor de desarrollo**:
 
      En tu terminal, usa el siguiente comando para iniciar la aplicación:
