@@ -1,12 +1,14 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import '../css/InicioSesion.css';
 
 const InicioSesion: React.FC = () => {
   return (
-    <div>
-      <h1>Bienvenido</h1>
-      {/* Aquí se renderizará la página hija dependiendo del ProtectedRoute */}
-      <Outlet />
+    <div className="inicio-sesion-container">
+      <h1 className="inicio-sesion-titulo">Bienvenido</h1>
+      <div className="inicio-sesion-content">
+        <Outlet />
+      </div>
     </div>
   );
 };

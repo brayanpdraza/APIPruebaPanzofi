@@ -1,0 +1,71 @@
+.admin-page-container {
+  max-width: 800px;
+  margin: 0 auto; 
+  padding: 20px;
+  background-color: #ffffff;
+}
+
+.table-container {
+  max-height: 400px;
+  overflow-y: auto; /* Agrega barra de desplazamiento vertical */
+  overflow-x: auto; /* Barra de desplazamiento horizontal */
+  border-radius: 5px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table thead {
+  background-color: #3458d1;
+  color: #fff;
+  position: sticky;
+  top: 0; /* Mantiene el encabezado fijo cuando se desplaza */
+  z-index: 1;
+}
+
+.table thead th {
+  padding: 12px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table tbody td {
+  padding: 12px;
+  color: #333;
+}
+
+.table tbody tr:hover {
+  background-color: #e1f5fe;
+  cursor: pointer;
+}
+
+.charts { 
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: space-between; 
+} 
+.chart {
+  flex: 1 1 45%; /* Cada gráfico ocupará aproximadamente el 45% del contenedor */
+  margin-bottom: 20px;
+  height: 350px;
+}
+
+.bar-chart-wrapper {
+  width: 100%; 
+  overflow-x: auto; 
+}
+
+.chart h2 { 
+  text-align: center; 
+} 
+
+@media (max-width: 768px) { 
+  .chart { flex: 1 1 100%; } 
+}

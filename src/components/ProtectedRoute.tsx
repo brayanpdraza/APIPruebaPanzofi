@@ -22,13 +22,13 @@ const ProtectedRoute: React.FC = () => {
     setIsLoading(false);
 
     if (!isLoggedIn) {
-      navigate("/", { replace: true }); 
+      navigate("/"); 
     } else if (userRoleFromCookie === 1) {
       navigate("/InicioSesion/AdminPage"); 
     } else {
       navigate("/InicioSesion/RegularPage"); 
     }
-  }, [location.pathname,navigate]); 
+  }, [location.pathname,isAuthenticated,userRole]); 
 
   if (isLoading) {
     return <div>Loading...</div>; 
