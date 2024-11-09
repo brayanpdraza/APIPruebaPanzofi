@@ -82,6 +82,7 @@ Puedes instalar estos requisitos usando `pip`.
 
 ### 7. Endpoint de prueba
   - Login: Con este endpoint, seremos capaces de loguearnos, y recibiremos el token del usuario logueado.
+    
     http://127.0.0.1:8000/register POST
     
     body:
