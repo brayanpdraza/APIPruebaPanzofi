@@ -64,11 +64,24 @@ Sigue estos pasos para descargar, configurar e iniciar el proyecto en tu máquin
 
 ## Funcionalidades
 
-1. **Login**:
-   Al abrir el proyecto, la página por default será la que nos permite loguearnos. Una vez sea exitoso el login, según la jerarquía del usuario pasaremos a la página "adminpage" o "regularpage"
+1. **Login**
+   La página por defecto es la de login. Los usuarios deben ingresar sus credenciales para acceder. Dependiendo de la jerarquía del usuario, serán redirigidos a una de las siguientes páginas:
 
-2. **AdminPage**:
-   Nos permite hacer uso de la parte administrativa. Nos muestra en una tabla todos los usuarios regulares del sistema y los datos de la sesión actual. Además ofrece dos gráficas; la primera para el tiempo de cada usuario, la segunda para observar la cantidad total entre todos los usuarios de veces que se dio click al botón 1 o 2.
-3. **RegularPage**
-   Nos muestra una interfaz con el logo, titulo y descripcion de la app, además de dos botones interactivos. Cada vez que hacemos click en los botones, aparece un mensaje y se actualiza la cantidad de clicks por sesión. Cada minuto que pasamos en la interfaz, se actualiza en la base de datos de la sesión del usuario.
+   - AdminPage: Página para usuarios con permisos administrativos.
+   - RegularPage: Página para usuarios regulares del sistema.
+
+2. **AdminPage**
+   Esta página permite al administrador gestionar y visualizar estadísticas de los usuarios. Contiene:
    
+-   Tabla de Usuarios: Muestra a los usuarios regulares del sistema y los datos de su sesión actual.
+-   Gráficos:
+      - Gráfico de barras que muestra el tiempo de sesión de cada usuario.
+      - Gráfico circular que muestra el total de veces que se ha hecho clic en los botones 1 y 2, entre todos los usuarios.
+   
+4. **RegularPage**
+   En esta página, los usuarios pueden interactuar con la interfaz. Contiene:
+   
+   - El logo de la aplicación, un título y una breve descripción.
+   - Botones interactivos: Al hacer clic en los botones, se genera un mensaje y se actualiza la cantidad de clics por sesión.
+   - La sesión se actualiza cada minuto y se envía la información a la base de datos.
+      
