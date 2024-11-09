@@ -66,8 +66,8 @@ Puedes instalar estos requisitos usando `pip`.
     python manage.py migrate
 
     Esto configurará las tablas de la base de datos de acuerdo a los modelos que hayas definido en tu proyecto.
-  #### 1. Data Fixtures:
-    Para cargar datos iniciales en la base de datos, usaremos fixtures:
+  #### 2. Data Fixtures:
+    Para cargar los datos necesarios de manera ágil en la base de datos, usaremos fixtures:
 
     - Tabla perfiles: python manage.py loaddata perfiles_fixture.json
     - Tabla Usuarios:  python manage.py loaddata usuarios_fixture.json
