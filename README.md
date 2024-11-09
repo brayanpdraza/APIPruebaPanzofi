@@ -1,6 +1,6 @@
 > **Advertencia**: 
 > Antes de ejecutar el frontend de este proyecto, asegúrate de que la API esté configurada y funcionando. El frontend depende de una API para obtener los datos y no podrá funcionar sin ella. 
-> Consulta la sección (https://github.com/brayanpdraza/APIPruebaPanzofi/tree/master).
+> Consulta la sección [documentación del Backend] (https://github.com/brayanpdraza/APIPruebaPanzofi/tree/master).
 
 # Proyecto React - Administrador de Sesiones y Gráficos
 
