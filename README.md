@@ -67,21 +67,21 @@ Sigue estos pasos para descargar, configurar e iniciar el proyecto en tu máquin
 1. **Login**
    La página por defecto es la de login. Los usuarios deben ingresar sus credenciales para acceder. Dependiendo de la jerarquía del usuario, serán redirigidos a una de las siguientes páginas:
 
-   - AdminPage: Página para usuarios con permisos administrativos.
-   - RegularPage: Página para usuarios regulares del sistema.
+- AdminPage: Página para usuarios con permisos administrativos.
+- RegularPage: Página para usuarios regulares del sistema.
 
 2. **AdminPage**
    Esta página permite al administrador gestionar y visualizar estadísticas de los usuarios. Contiene:
    
--   Tabla de Usuarios: Muestra a los usuarios regulares del sistema y los datos de su sesión actual.
--   Gráficos:
-      - Gráfico de barras que muestra el tiempo de sesión de cada usuario.
-      - Gráfico circular que muestra el total de veces que se ha hecho clic en los botones 1 y 2, entre todos los usuarios.
+- Tabla de Usuarios: Muestra a los usuarios regulares del sistema y los datos de su sesión actual.
+- Gráficos:
+  - Gráfico de barras que muestra el tiempo de sesión de cada usuario.
+  - Gráfico circular que muestra el total de veces que se ha hecho clic en los botones 1 y 2, entre todos los usuarios.
    
 4. **RegularPage**
    En esta página, los usuarios pueden interactuar con la interfaz. Contiene:
    
-   - El logo de la aplicación, un título y una breve descripción.
-   - Botones interactivos: Al hacer clic en los botones, se genera un mensaje y se actualiza la cantidad de clics por sesión.
-   - La sesión se actualiza cada minuto y se envía la información a la base de datos.
+- El logo de la aplicación, un título y una breve descripción.
+- Botones interactivos: Al hacer clic en los botones, se genera un mensaje y se actualiza la cantidad de clics por sesión.
+- La sesión se actualiza cada minuto y se envía la información a la base de datos.
       
