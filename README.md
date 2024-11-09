@@ -55,8 +55,49 @@ Puedes instalar estos requisitos usando `pip`.
     CORS_ALLOWED_ORIGINS = [
         'http://localhost:3000',  //Si usas React en localhost:3000
     ]
-
+    
+  Si necesitas agregar más dominios permitidos, simplemente edita la lista `CORS_ALLOWED_ORIGINS` en el archivo.
+  
 ### 5. Migraciones y Fixtures
 
   #### 1. Migraciones:
-  Django usa migraciones para crear y actualizar la base de datos. Para ejecutar las migraciones, usa el siguiente comando
+    Django usa migraciones para crear y actualizar la base de datos. Para ejecutar las migraciones, usa el siguiente comando
+
+    python manage.py migrate
+
+    Esto configurará las tablas de la base de datos de acuerdo a los modelos que hayas definido en tu proyecto.
+  #### 1. Data Fixtures:
+    Para cargar datos iniciales en la base de datos, usaremos fixtures:
+
+    - Tabla perfiles: python manage.py loaddata perfiles_fixture.json
+    - Tabla Usuarios:  python manage.py loaddata usuarios_fixture.json
+    - Tabla Landing_Page:  python manage.py loaddata MT_Landing_Page_fixture.json
+    
+### 6. Ejecución del Servidor de Desarrollo
+  Una vez configurado todo, ejecuta el servidor de desarrollo con el siguiente comando:
+
+  python manage.py runserver
+
+  Esto iniciará el servidor de desarrollo en el puerto 8000: http://127.0.0.1:8000
+
+### 7. Endpoint de prueba
+  - Login: Con este endpoint, seremos capaces de loguearnos, y recibiremos el token del usuario logueado.
+    http://127.0.0.1:8000/register POST
+    
+    body:
+    {
+    "Nombre_Usuario":"Usuario Prueba",
+    "Clave":"1234"
+    }
+
+    respuesta:
+    {
+      "token": "fdc2a1b046ad236a97257e3ccdd9106518021764",
+      "usuario": {
+          "ID_Usuarios": 52,
+          "ID_MT_Perfiles": 2,
+          "Nombre_Usuario": "Jaime Duque",
+          "Clave": "pbkdf2_sha256$870000$4YAtUoaB6ssSTFAHRJy4fr$e8aXR7r9AgPZlx31haWcc5d784O7xCVQMlpTsAN5Uj0="
+      }
+    }
+    
