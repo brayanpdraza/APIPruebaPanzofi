@@ -23,6 +23,8 @@ urlpatterns = [
     path('login', views.login),
     path('register', views.register),
     path('IncBoton', views.AumentoContadorBoton),
+    path('IncTime', views.AumentoTiempo),
+    path('usuarios_sesion', views.obtener_usuarios_sesion),
     path('', include('projects.urls')),
     path('', include('Users.urls')),
     path('', include('Perfiles.urls')),

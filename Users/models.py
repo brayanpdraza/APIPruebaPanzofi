@@ -15,18 +15,18 @@ class Usuarios_Sesion(models.Model):
     Inicio_Sesion = models.DateTimeField(default=timezone.now)
     Boton_1 = models.IntegerField(default=0)
     Boton_2 = models.IntegerField(default=0)
-    Tiempo = models.IntegerField(null=True)
+    Tiempo = models.IntegerField(default=0)
 
     def start_session(self):
         self.Inicio_Sesion = timezone.now()
         self.Boton_1 = 0  # Reiniciar contador de clics al iniciar sesión
         self.Boton_2 = 0  # Reiniciar contador de clics al iniciar sesión
-        self.Tiempo = None
+        self.Tiempo = 0
         self.save()
 
     def end_session(self):
         if self.Inicio_Sesion:
-            self.Tiempo = int((timezone.now() - self.Inicio_Sesion).total_seconds() // 60)
+            #self.Tiempo = int((timezone.now() - self.Inicio_Sesion).total_seconds() // 60)
 
             # Guardar la sesión en el registro de auditoría
             Auditoria_Usuarios_Sesion.objects.create(
@@ -45,4 +45,8 @@ class Usuarios_Sesion(models.Model):
             self.Boton_1 += 1
         elif button_number == 2:
             self.Boton_2 += 1
+        self.save()
+
+    def increment_Time(self):
+        self.Tiempo+=1
         self.save()

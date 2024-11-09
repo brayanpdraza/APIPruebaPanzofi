@@ -2,6 +2,8 @@ from Users.models import Usuarios,Usuarios_Sesion
 from rest_framework import viewsets, permissions,status
 from rest_framework.decorators import action
 from rest_framework.response import Response
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
 from .serializers import Usuarios_Serializer,Usuarios_Detalle_Serializer,Usuarios_Sesion_Serializer
 #import hashlib 
 
@@ -20,9 +22,6 @@ class Users_Detail_View_Set(viewsets.ReadOnlyModelViewSet):
         nombre_usuario = request.data.get('Nombre_Usuario')
         clave = request.data.get('Clave')
         
-        # Encriptar o comparar con el hash almacenado
-        #hashed_clave = hashlib.sha256(clave.encode()).hexdigest()
-        
         usuario = Usuarios.objects.filter(Nombre_Usuario=nombre_usuario, Clave=clave).first()
         
         if usuario:
@@ -33,5 +32,5 @@ class Users_Detail_View_Set(viewsets.ReadOnlyModelViewSet):
 
 class Users_Session_View_Set(viewsets.ModelViewSet):
     queryset=Usuarios_Sesion.objects.all()
-    permission_classes = [permissions.AllowAny]
+    ermission_classes = [permissions.AllowAny]
     serializer_class = Usuarios_Sesion_Serializer
