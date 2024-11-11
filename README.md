@@ -33,10 +33,13 @@ Sigue estos pasos para descargar, configurar e iniciar el proyecto en tu máquin
      cd APIPruebaPanzofi
 3. **Instala las dependencias**:
      Asegúrate de estar en el directorio raíz del proyecto y ejecuta el siguiente comando para instalar todas las dependencias necesarias:
-     npm install
+
+   npm install
 
      Esto descargará e instalará las dependencias de React y los paquetes que utilizamos para los gráficos (chart.js, react-chartjs-2, chartjs-plugin-zoom).
+   
   ## Dependencias necesarias:
+  
   react-router-dom: Para la gestión de rutas dentro de la aplicación.
   chart.js y react-chartjs-2: Para integrar gráficos interactivos.
   chartjs-plugin-zoom: Para permitir el zoom y desplazamiento en los gráficos.
@@ -50,27 +53,28 @@ Sigue estos pasos para descargar, configurar e iniciar el proyecto en tu máquin
    "apiUrl": "https://mi-api.com"
    }
 
-   Si se ejecuta localmente con Django, no se debe modificar nada
+   Si se ejecuta localmente con Django, no se debe modificar nada del repositorio clonado
 
 ## Ejecución
-  1. **Ejecuta el servidor de desarrollo**:
+   1. **Ejecuta el servidor de desarrollo**:
 
      En tu terminal, usa el siguiente comando para iniciar la aplicación:
 
      npm start
 
      Esto iniciará el servidor de desarrollo y abrirá la aplicación en tu navegador en http://localhost:3000.
-2. **Accede a la aplicación**:
+     
+   2. **Accede a la aplicación**:
 
-   Una vez que el servidor se esté ejecutando, abre tu navegador y dirígete a http://localhost:3000. Deberías poder ver la interfaz de usuario de la aplicación, donde se muestran los usuarios, tiempos de sesión y los gráficos de uso
+   Una vez que el servidor se esté ejecutando, abre tu navegador y dirígete a http://localhost:3000. Deberías poder ver el formulario de login.
 
 ## Funcionalidades
 
 1. **Login**
    La página por defecto es la de login. Los usuarios deben ingresar sus credenciales para acceder. Dependiendo de la jerarquía del usuario, serán redirigidos a una de las siguientes páginas:
 
-- AdminPage: Página para usuarios con permisos administrativos.
-- RegularPage: Página para usuarios regulares del sistema.
+- AdminPage: Página para usuarios con perfil de Administrador.
+- RegularPage: Página para usuarios con permisos diferentes al Administrador (Usuarios regulares).
 
 2. **AdminPage**
    Esta página permite al administrador gestionar y visualizar estadísticas de los usuarios. Contiene:
