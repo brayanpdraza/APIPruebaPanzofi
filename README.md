@@ -1,6 +1,6 @@
 # API Backend - Django
 
-Este proyecto proporciona la API para el sistema de administración de sesiones y gráficos. Utiliza **Django** junto con **Django REST Framework** para manejar las rutas y endpoints, y **JWT** (JSON Web Token) para la autenticación de usuarios.
+Este proyecto proporciona la API para la aplicación web de Clicks y administración de datos. Utiliza **Django** junto con **Django REST Framework** para manejar las rutas y endpoints, y **JWT** (JSON Web Token) para la autenticación de usuarios.
 
 ## Requisitos
 
