@@ -2,7 +2,7 @@
 > Antes de ejecutar el frontend de este proyecto, asegúrate de que la API esté configurada y funcionando. El frontend depende de una API para obtener los datos y no podrá funcionar sin ella. 
 > Consulta la sección [documentación del Backend] (https://github.com/brayanpdraza/APIPruebaPanzofi/tree/master).
 
-# Proyecto React - Administrador de Sesiones y Gráficos
+# Proyecto React - Aplicación Web Clicks y Administración
 
 Este proyecto es una aplicación de administración/Interaccion que muestra estadísticas de usuarios y su interacción con botones dentro de un sistema, además de ofrecer gráficos interactivos con `chart.js` para mostrar datos como el tiempo de sesión por usuario y el uso de botones.
 
@@ -25,14 +25,12 @@ Sigue estos pasos para descargar, configurar e iniciar el proyecto en tu máquin
 
    En tu terminal, usa el siguiente comando para clonar el repositorio:
 
-   git clone https://github.com/usuario/repositorio.git
-   
-   Reemplaza usuario/repositorio.git por la URL de tu repositorio.
+   git clone https://github.com/brayanpdraza/APIPruebaPanzofi.git
 
 2. **Navega a la carpeta del proyecto**:
      Una vez que el repositorio esté clonado, entra en el directorio del proyecto:
    
-     cd nombre-del-repositorio
+     cd APIPruebaPanzofi
 3. **Instala las dependencias**:
      Asegúrate de estar en el directorio raíz del proyecto y ejecuta el siguiente comando para instalar todas las dependencias necesarias:
      npm install
